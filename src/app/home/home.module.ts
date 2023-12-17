@@ -5,12 +5,12 @@ import { HomeComponent } from './home.component';
 
 const routes: Routes = [
   {
-    path: '/',
+    path: '',
     component: HomeComponent,
-    title: 'Trang Chu',
+    title: 'Trang Chủ',
     data: {
       metadata: {
-        pageTitle: 'Trang Chu',
+        pageTitle: 'Trang Chủ',
       },
     },
   },

@@ -1,1 +1,57 @@
-<p>navigation works!</p>
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+    (click)="drawer.toggle()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div class="logo-wrapper">
+    <img src="assets/icons/logo-instagram.png" alt="nguyenphat-logo" />
+  </div>
+  <span class="page-title">Cửa hàng Nguyên Phát</span>
+</mat-toolbar>
+
+<mat-drawer-container #navContainer>
+  <mat-drawer #drawer opened="false" mode="side">
+    <div class="menu-wrapper">
+      <mat-form-field class="search-form">
+        <input type="tel" matInput placeholder="Search" name="search" />
+        <button matSuffix mat-button><mat-icon>search</mat-icon></button>
+      </mat-form-field>
+      <mat-expansion-panel *ngFor="let g of menuGroups">
+        <mat-expansion-panel-header collapsedHeight="56px" expandedHeight="56px">
+          <mat-icon>{{ g.matIcon }}</mat-icon>
+          <span class="group-text">{{ g.title }}</span>
+        </mat-expansion-panel-header>
+        <mat-nav-list matExpansionPanelContent>
+          <div *ngFor="let m of g.menus">
+            <a
+              routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{ exact: true }"
+              class="nav-item"
+              [routerLink]="m.url"
+            >
+              <mat-icon>{{ m.matIcon }}</mat-icon>
+              <span class="nav-text">{{ m.title }}</span>
+            </a>
+          </div>
+        </mat-nav-list>
+      </mat-expansion-panel>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="routerWrapper">
+      <router-outlet></router-outlet>
+      <div class="footer">
+        <div class="copyright">Copyright 2023</div>
+        <div class="quick-link">
+          <a class="quick-link-item" href="">Quick link 1</a>
+          <a class="quick-link-item" href="">Quick link 2</a>
+          <a class="quick-link-item" href="">Quick link 3</a>
+        </div>
+      </div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
