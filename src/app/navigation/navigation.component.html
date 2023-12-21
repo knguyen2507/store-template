@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar>
   <button
     mat-icon-button
     class="example-icon"
@@ -7,10 +7,10 @@
   >
     <mat-icon>menu</mat-icon>
   </button>
-  <div class="logo-wrapper">
+  <div class="logo-wrapper" (click)="onClick()">
     <img src="assets/icons/logo-instagram.png" alt="nguyenphat-logo" />
   </div>
-  <span class="page-title">Cửa hàng Nguyên Phát</span>
+  <span class="page-title" (click)="onClick()">Cửa hàng Nguyên Phát</span>
 </mat-toolbar>
 
 <mat-drawer-container #navContainer>
@@ -44,14 +44,6 @@
   <mat-drawer-content>
     <div class="routerWrapper">
       <router-outlet></router-outlet>
-      <div class="footer">
-        <div class="copyright">Copyright 2023</div>
-        <div class="quick-link">
-          <a class="quick-link-item" href="">Quick link 1</a>
-          <a class="quick-link-item" href="">Quick link 2</a>
-          <a class="quick-link-item" href="">Quick link 3</a>
-        </div>
-      </div>
     </div>
   </mat-drawer-content>
 </mat-drawer-container>

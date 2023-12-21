@@ -1,4 +1,7 @@
 mat-toolbar {
+  background-color: red;
+  height: 64px;
+
   .logo-wrapper {
     width: 48px;
     height: 48px;
@@ -24,6 +27,15 @@ mat-drawer {
   display: flex;
 
   .menu-wrapper {
+    overflow-x: hidden;
+
+    mat-expansion-panel {
+      margin-bottom: 5px;
+
+      mat-expansion-panel-header {
+        background-color: red;
+      }
+    }
     .search-form {
       margin-top: 10px;
     }
@@ -65,35 +77,10 @@ mat-drawer-content {
 }
 
 .routerWrapper {
-  height: calc(100vh - 48px);
+  height: calc(100vh - 93px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  .footer {
-    height: 88px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #3f51b5;
-    .copyright {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 28px;
-      color: white;
-      padding: 0 32px;
-    }
-    .quick-link {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      margin-right: 32px;
-      .quick-link-item {
-        margin-left: 24px;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        color: white;
-      }
-    }
-  }
+  margin-left: 10px;
+  margin-top: 10px;
 }
