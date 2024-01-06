@@ -6,12 +6,17 @@ export const parameterFeatureKey = 'parameter';
 
 export interface ParameterState {
   pagi: Partial<ParameterPagiModel>;
+  pagiAdmin: Partial<ParameterPagiModel>;
 }
 
 export const initialParameter: ParameterState = {
   pagi: {
     offset: 0,
     limit: 8,
+  },
+  pagiAdmin: {
+    offset: 0,
+    limit: 50,
   },
 };
 
@@ -21,6 +26,12 @@ const parameterReducer = createReducer(
     return {
       ...state,
       pagi: item,
+    };
+  }),
+  on(ParameterActions.loadPagiAdmin, (state: ParameterState, { item }) => {
+    return {
+      ...state,
+      pagiAdmin: item,
     };
   }),
 );

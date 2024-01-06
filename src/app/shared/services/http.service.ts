@@ -30,6 +30,40 @@ export class HttpService {
     );
   }
 
+  getAdmin<T>(url: string, params?: any, options?: any): Observable<T> {
+    return this.httpClient
+      .get(
+        url,
+        Object.assign({}, options, {
+          params,
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+          },
+        }),
+      )
+      .pipe(catchError(this.handlerError), map(this.handlerResponse));
+  }
+
+  postAdmin<T>(url: string, body?: any, options?: any): Observable<T> {
+    Notiflix.Loading.standard();
+    return this.httpClient
+      .post(url, body, {
+        ...options,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        },
+      })
+      .pipe(
+        catchError(this.handlerError),
+        map(this.handlerResponse),
+        map((data) => {
+          Notiflix.Notify.success('Thao tác thành công');
+          Notiflix.Loading.remove();
+          return data;
+        }),
+      );
+  }
+
   put<T>(url: string, body: any, options?: any): Observable<T> {
     Notiflix.Loading.standard();
     return this.httpClient.put(url, body, options).pipe(

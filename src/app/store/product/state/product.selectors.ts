@@ -9,4 +9,27 @@ export const selectProductList = createSelector(selectProductState, (state: Prod
     total: state.total,
   };
 });
+export const selectProductListByAdmin = createSelector(selectProductState, (state: ProductState) => {
+  return {
+    itemByAdmin: state.itemByAdmin,
+    totalByAdmin: state.totalByAdmin,
+  };
+});
 export const selectProductDetail = createSelector(selectProductState, (state: ProductState) => state.itemDetail);
+export const selectProductListByBrand = createSelector(selectProductState, (state: ProductState) => {
+  return {
+    itemByBrand: state.itemByBrand,
+    totalByBrand: state.totalByBrand,
+  };
+});
+export const selectProductListByCategory = createSelector(selectProductState, (state: ProductState) => {
+  return {
+    itemByCategory: state.itemByCategory,
+    totalByCategory: state.totalByCategory,
+  };
+});
+export const selectTotalProduct = createSelector(selectProductState, (state: ProductState) => {
+  return {
+    totalProduct: state.totalProduct,
+  };
+});

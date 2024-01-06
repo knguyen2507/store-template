@@ -21,11 +21,34 @@ export class ProductEffects {
                 offset: data.offset,
                 limit: data.limit,
               },
-              data.searchModel,
+              data.searchName,
             )
             .pipe(
               map((res) => {
                 return this.store.dispatch(ProductActions.saveProductList({ items: res.items, total: res.total }));
+              }),
+            );
+        }),
+      );
+    },
+    { dispatch: false },
+  );
+
+  getProductListByAdmin$ = createEffect(
+    () => {
+      return this.action$.pipe(
+        ofType(ProductActions.loadProductListByAdmin),
+        mergeMap((data) => {
+          return this.productService
+            .findProductListByAdmin({
+              offset: data.offset,
+              limit: data.limit,
+            })
+            .pipe(
+              map((res) => {
+                return this.store.dispatch(
+                  ProductActions.saveProductListByAdmin({ items: res.items, total: res.total }),
+                );
               }),
             );
         }),
@@ -39,7 +62,7 @@ export class ProductEffects {
       return this.action$.pipe(
         ofType(ProductActions.loadProductDetail),
         mergeMap((data) => {
-          return this.productService.findProductDetail(data.id).pipe(
+          return this.productService.findProductDetail(data.productCode).pipe(
             map((res) => {
               return this.store.dispatch(ProductActions.saveProductDetail({ item: res }));
             }),
@@ -61,12 +84,13 @@ export class ProductEffects {
                 offset: data.offset,
                 limit: data.limit,
               },
-              data.searchModel,
-              data.brandId,
+              data.brandCode,
             )
             .pipe(
               map((res) => {
-                return this.store.dispatch(ProductActions.saveProductList({ items: res.items, total: res.total }));
+                return this.store.dispatch(
+                  ProductActions.saveProductListByBrand({ items: res.items, total: res.total }),
+                );
               }),
             );
         }),
@@ -86,14 +110,31 @@ export class ProductEffects {
                 offset: data.offset,
                 limit: data.limit,
               },
-              data.searchModel,
-              data.categoryId,
+              data.categoryCode,
             )
             .pipe(
               map((res) => {
-                return this.store.dispatch(ProductActions.saveProductList({ items: res.items, total: res.total }));
+                return this.store.dispatch(
+                  ProductActions.saveProductListByCategory({ items: res.items, total: res.total }),
+                );
               }),
             );
+        }),
+      );
+    },
+    { dispatch: false },
+  );
+
+  getTotalProduct$ = createEffect(
+    () => {
+      return this.action$.pipe(
+        ofType(ProductActions.loadTotalProduct),
+        mergeMap((data) => {
+          return this.productService.getTotalProduct().pipe(
+            map((res) => {
+              return this.store.dispatch(ProductActions.saveTotalProduct({ total: res.total }));
+            }),
+          );
         }),
       );
     },

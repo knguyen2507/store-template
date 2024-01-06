@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { FindMany } from '../../shared/models/find.many.model';
+import { FindMany, TotalModel } from '../../shared/models/find.many.model';
 import { HttpService } from '../../shared/services/http.service';
-import { ProductModel } from './product.model';
+import { ProductDetailModel, ProductModel, ProductModelFindByAdmin } from './product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,41 +12,43 @@ export class ProductService {
 
   private apiUrl = environment.urlApi;
 
-  findProductList(pagi?: { offset: number; limit: number }, searchModel?: any) {
-    if (searchModel) {
-      searchModel = JSON.stringify(searchModel);
+  findProductList(pagi?: { offset: number; limit: number }, searchName?: string) {
+    let payload: any = pagi;
+    if (searchName) {
+      payload = {
+        ...pagi,
+        searchName,
+      };
     }
-    return this.httpService.get<FindMany<ProductModel>>(`${this.apiUrl}/product/find`, {
-      ...pagi,
-      searchModel,
+
+    return this.httpService.get<FindMany<ProductModel>>(`${this.apiUrl}/product/find`, payload);
+  }
+
+  findProductListByAdmin(pagi?: { offset: number; limit: number }) {
+    return this.httpService.get<FindMany<ProductModelFindByAdmin>>(`${this.apiUrl}/product/admin/find`, { ...pagi });
+  }
+
+  findProductDetail(productCode: string) {
+    return this.httpService.get<ProductDetailModel>(`${this.apiUrl}/product/detail`, {
+      productCode,
     });
   }
 
-  findProductDetail(id: string) {
-    return this.httpService.get<ProductModel>(`${this.apiUrl}/product/detail`, {
-      id,
-    });
-  }
-
-  findProductListByBrand(pagi?: { offset: number; limit: number }, searchModel?: any, id?: string) {
-    if (searchModel) {
-      searchModel = JSON.stringify(searchModel);
-    }
+  findProductListByBrand(pagi?: { offset: number; limit: number }, brandCode?: string) {
     return this.httpService.get<FindMany<ProductModel>>(`${this.apiUrl}/product/find-by-brand`, {
       ...pagi,
-      searchModel,
-      id,
+      brandCode,
     });
   }
 
-  findProductListByCategory(pagi?: { offset: number; limit: number }, searchModel?: any, id?: string) {
-    if (searchModel) {
-      searchModel = JSON.stringify(searchModel);
-    }
+  findProductListByCategory(pagi?: { offset: number; limit: number }, categoryCode?: string) {
     return this.httpService.get<FindMany<ProductModel>>(`${this.apiUrl}/product/find-by-category`, {
       ...pagi,
-      searchModel,
-      id,
+      categoryCode,
     });
+  }
+
+  getTotalProduct() {
+    return this.httpService.getAdmin<TotalModel>(`${this.apiUrl}/product/get-total-product`);
   }
 }

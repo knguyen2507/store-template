@@ -3,4 +3,5 @@ export const environment = {
   mode: '',
   host: '',
   urlApi: '',
+  guard: false,
 };

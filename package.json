@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start:dev": "ng serve --configuration development",
-    "build": "ng build",
+    "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -24,9 +24,16 @@
     "@ng-select/ng-select": "^12.0.4",
     "@ngrx/effects": "^17.0.1",
     "@ngrx/store": "^17.0.1",
+    "ag-grid-angular": "^31.0.1",
+    "ag-grid-community": "^31.0.1",
+    "jquery": "^3.7.1",
+    "lightgallery": "^2.7.2",
+    "ng-gallery": "^11.0.0",
     "ngx-pagination": "^6.0.3",
+    "ngx-slick-carousel": "^17.0.0",
     "notiflix": "^3.2.6",
     "rxjs": "~7.8.0",
+    "slick-carousel": "^1.8.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
   },

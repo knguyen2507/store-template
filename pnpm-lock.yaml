@@ -47,15 +47,36 @@ dependencies:
   '@ngrx/store':
     specifier: ^17.0.1
     version: 17.0.1(@angular/core@17.0.4)(rxjs@7.8.1)
+  ag-grid-angular:
+    specifier: ^31.0.1
+    version: 31.0.1(@angular/common@17.0.4)(@angular/core@17.0.4)
+  ag-grid-community:
+    specifier: ^31.0.1
+    version: 31.0.1
+  jquery:
+    specifier: ^3.7.1
+    version: 3.7.1
+  lightgallery:
+    specifier: ^2.7.2
+    version: 2.7.2
+  ng-gallery:
+    specifier: ^11.0.0
+    version: 11.0.0(@angular/cdk@17.0.1)(@angular/common@17.0.4)(@angular/core@17.0.4)(rxjs@7.8.1)
   ngx-pagination:
     specifier: ^6.0.3
     version: 6.0.3(@angular/common@17.0.4)(@angular/core@17.0.4)
+  ngx-slick-carousel:
+    specifier: ^17.0.0
+    version: 17.0.0(@angular/common@17.0.4)(@angular/core@17.0.4)(@angular/forms@17.0.4)(rxjs@7.8.1)(zone.js@0.14.2)
   notiflix:
     specifier: ^3.2.6
     version: 3.2.6
   rxjs:
     specifier: ~7.8.0
     version: 7.8.1
+  slick-carousel:
+    specifier: ^1.8.1
+    version: 1.8.1(jquery@3.7.1)
   tslib:
     specifier: ^2.3.0
     version: 2.6.2
@@ -3452,6 +3473,22 @@ packages:
       regex-parser: 2.2.11
     dev: true
 
+  /ag-grid-angular@31.0.1(@angular/common@17.0.4)(@angular/core@17.0.4):
+    resolution: {integrity: sha512-NePQ3cX2lQm93SssAsu0Koy4+cC4yuRtEFz6so3g9Xdp1QV5V5nL1Z6BRjksyVlLdq0HWbaRknm36VGwzXuTPg==}
+    peerDependencies:
+      '@angular/common': '>= 14.0.0'
+      '@angular/core': '>= 14.0.0'
+    dependencies:
+      '@angular/common': 17.0.4(@angular/core@17.0.4)(rxjs@7.8.1)
+      '@angular/core': 17.0.4(rxjs@7.8.1)(zone.js@0.14.2)
+      ag-grid-community: 31.0.1
+      tslib: 2.6.2
+    dev: false
+
+  /ag-grid-community@31.0.1:
+    resolution: {integrity: sha512-RZQlW1DTOJHsUR/tnbnTJQKgAnDlHi05YYyTe5AgNor/1TlX1hoYdcqrGsJjvcHQgTjeEgzWOL0yf+KcqXZzxg==}
+    dev: false
+
   /agent-base@7.1.0:
     resolution: {integrity: sha512-o/zjMZRhJxny7OyEF+Op8X+efiELC7k7yOjMzgfzVqOzXqkBkWI79YoTdOtsuWd5BWhAGAuOY/Xa6xpiaWXiNg==}
     engines: {node: '>= 14'}
@@ -5609,6 +5646,10 @@ packages:
     hasBin: true
     dev: true
 
+  /jquery@3.7.1:
+    resolution: {integrity: sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==}
+    dev: false
+
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
     dev: true
@@ -5829,6 +5870,11 @@ packages:
       webpack: 5.89.0(esbuild@0.19.5)
       webpack-sources: 3.2.3
     dev: true
+
+  /lightgallery@2.7.2:
+    resolution: {integrity: sha512-Ewdcg9UPDqV0HGZeD7wNE4uYejwH2u0fMo5VAr6GHzlPYlhItJvjhLTR0cL0V1HjhMsH39PAom9iv69ewitLWw==}
+    engines: {node: '>=6.0.0'}
+    dev: false
 
   /limiter@1.1.5:
     resolution: {integrity: sha512-FWWMIEOxz3GwUI4Ts/IvgVy6LPvoMPgjMdQ185nN6psJyBJ4yOpzqm695/h5umdLJg2vW3GR5iG11MAkR2AzJA==}
@@ -6228,6 +6274,21 @@ packages:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
 
+  /ng-gallery@11.0.0(@angular/cdk@17.0.1)(@angular/common@17.0.4)(@angular/core@17.0.4)(rxjs@7.8.1):
+    resolution: {integrity: sha512-xG0WD4Hd8FrKAinrH+dseH3dpbthhgc+n6EKUCv1WuwdUJC7YiEMuPOl1aV2t8DxSblVUokR2w5Y6pAFRo9Ixw==}
+    peerDependencies:
+      '@angular/cdk': '>=16.0.0'
+      '@angular/common': '>=16.0.0'
+      '@angular/core': '>=16.0.0'
+      rxjs: '>=7.0.0'
+    dependencies:
+      '@angular/cdk': 17.0.1(@angular/common@17.0.4)(@angular/core@17.0.4)(rxjs@7.8.1)
+      '@angular/common': 17.0.4(@angular/core@17.0.4)(rxjs@7.8.1)
+      '@angular/core': 17.0.4(rxjs@7.8.1)(zone.js@0.14.2)
+      rxjs: 7.8.1
+      tslib: 2.6.2
+    dev: false
+
   /ngx-pagination@6.0.3(@angular/common@17.0.4)(@angular/core@17.0.4):
     resolution: {integrity: sha512-lONjTQ7hFPh1SyhwDrRd5ZwM4NMGQ7bNR6vLrs6mrU0Z8Q1zCcWbf/pvyp4DOlGyd9uyZxRy2wUsSZLeIPjbAw==}
     peerDependencies:
@@ -6237,6 +6298,23 @@ packages:
       '@angular/common': 17.0.4(@angular/core@17.0.4)(rxjs@7.8.1)
       '@angular/core': 17.0.4(rxjs@7.8.1)(zone.js@0.14.2)
       tslib: 2.6.2
+    dev: false
+
+  /ngx-slick-carousel@17.0.0(@angular/common@17.0.4)(@angular/core@17.0.4)(@angular/forms@17.0.4)(rxjs@7.8.1)(zone.js@0.14.2):
+    resolution: {integrity: sha512-4GS13vjbfEUzQR6St9tq9ms69ODSxkPR0HhXJ97YhDlOlbirk9wHxnSKNneutitlKIt9G/MCrIV4u0L3wiC8rQ==}
+    peerDependencies:
+      '@angular/common': ^17.0.0
+      '@angular/core': ^17.0.0
+      '@angular/forms': ^17.0.0
+      rxjs: ^7.0.0
+      zone.js: '>=0.10.2'
+    dependencies:
+      '@angular/common': 17.0.4(@angular/core@17.0.4)(rxjs@7.8.1)
+      '@angular/core': 17.0.4(rxjs@7.8.1)(zone.js@0.14.2)
+      '@angular/forms': 17.0.4(@angular/common@17.0.4)(@angular/core@17.0.4)(@angular/platform-browser@17.0.4)(rxjs@7.8.1)
+      rxjs: 7.8.1
+      tslib: 2.6.2
+      zone.js: 0.14.2
     dev: false
 
   /nice-napi@1.0.2:
@@ -7351,6 +7429,14 @@ packages:
     resolution: {integrity: sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==}
     engines: {node: '>=12'}
     dev: true
+
+  /slick-carousel@1.8.1(jquery@3.7.1):
+    resolution: {integrity: sha512-XB9Ftrf2EEKfzoQXt3Nitrt/IPbT+f1fgqBdoxO3W/+JYvtEOW6EgxnWfr9GH6nmULv7Y2tPmEX3koxThVmebA==}
+    peerDependencies:
+      jquery: '>=1.8.0'
+    dependencies:
+      jquery: 3.7.1
+    dev: false
 
   /smart-buffer@4.2.0:
     resolution: {integrity: sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==}

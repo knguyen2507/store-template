@@ -1,3 +1,9 @@
 <div class="content" role="main">
-  <app-navigation></app-navigation>
+  <!-- <app-shop-navigation *ngIf="showComponent === 'shop'; else second"></app-shop-navigation>
+  <ng-template #second>
+    <app-admin-navigation *ngIf="showComponent === 'admin'; else third"></app-admin-navigation>
+    <ng-template #third><router-outlet></router-outlet></ng-template>
+  </ng-template> -->
+  <app-navigation *ngIf="showComponent; else second"></app-navigation>
+  <ng-template #second><router-outlet></router-outlet></ng-template>
 </div>

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -17,8 +17,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { AgGridModule } from 'ag-grid-angular';
+import { GalleryModule } from 'ng-gallery';
+import { LightboxModule } from 'ng-gallery/lightbox';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ListItemComponent } from './components/list-item/list-item.component';
+import { PaginatorAdminComponent } from './components/paginator-admin/paginator.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 
 const matModules = [
@@ -44,9 +48,13 @@ const modules = [
   FormsModule,
   NgSelectModule,
   NgxPaginationModule,
+  GalleryModule,
+  LightboxModule,
+  ReactiveFormsModule,
+  AgGridModule,
 ];
 
-const components = [PaginatorComponent, ListItemComponent];
+const components = [PaginatorComponent, ListItemComponent, PaginatorAdminComponent];
 
 @NgModule({
   declarations: components,

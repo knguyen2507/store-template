@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { PageEvent } from '@angular/material/paginator';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Store } from '@ngrx/store';
 import * as AppStore from '../../../store/index.store';
 
@@ -8,7 +8,7 @@ import * as AppStore from '../../../store/index.store';
   templateUrl: './paginator.component.html',
   styleUrls: ['./paginator.component.scss'],
 })
-export class PaginatorComponent {
+export class PaginatorComponent implements OnInit {
   constructor(private store: Store<AppStore.ParameterStore.parameterReducers.ParameterState>) {}
 
   offset = 0;
@@ -17,8 +17,20 @@ export class PaginatorComponent {
   pageEvent: PageEvent;
 
   @Input() total: number;
+  @Input() sizeOptions: number[];
+  @Input() size: number;
 
   @Output() paginatorChanged = new EventEmitter();
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+
+  ngOnInit(): void {
+    this.paginator._intl.itemsPerPageLabel = 'Hiển thị';
+    this.paginator._intl.previousPageLabel = 'Trang trước';
+    this.paginator._intl.nextPageLabel = 'Trang sau';
+    this.paginator._intl.getRangeLabel = (page: number, pageSize: number, length: number) => {
+      return `Trang: ${page + 1}/${Math.ceil(length / pageSize)}`;
+    };
+  }
 
   handlePageEvent(e: PageEvent) {
     this.pageEvent = e;
